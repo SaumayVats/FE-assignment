@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Dashboard Design|FE</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="DashChart.css">
+    </head> <body>
+    <div class="cont">
+        <div class="nav">
+            <ul><li><a href="#"><span class="icon"><ion-icon name="logo-react"></ion-icon></span>
+                <span class="title">BRAND NAME</span></a></li><p>Hello! Saumay</p>
+                <li><a href="#"><span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+                <span class="title">Dashboard</span></a></li>
+                <li><a href="#"><span class="icon"><ion-icon name="people-outline"></ion-icon></span>
+                <span class="title">Customers</span></a></li>
+                <li><a href="#"><span class="icon"><ion-icon name="chatbubble-ellipses-outline"></ion-icon></span>
+                <span class="title">Message</span></a></li>
+                <li><a href="#"><span class="icon"><ion-icon name="help-outline"></ion-icon></span>
+                <span class="title">Help</span></a></li>
+                <li><a href="#"><span class="icon"><ion-icon name="settings-outline"></ion-icon></span>
+                <span class="title">Settings</span></a></li>  
+                <li><a href="#"><span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
+                <span class="title">Password</span></a></li>  
+                <li><a href="#"><span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
+                <span class="title">Sign Out</span></a></li>    
+            </ul>
+        </div>
+        <!--main--><div class="main"> <!--inside body(container)-->
+            <div class="topbar">
+            <div class="toggle">
+                <ion-icon name="menu-outline"></ion-icon>
+            </div> <!--toggle div ends-->
+            <!--search bar--> <div class="search">
+                <label><input type="text"placeholder="Search here">
+                <ion-icon name="search-outline"></ion-icon></label>
+            </div>
+            <!--userImg--> <div class="user">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVDFdfjlGdmkgp2ARLGqKUdf4TWrwtzxfKlQ&usqp=CAU">
+            </div>
+            </div>
+            <!--cards(boxes)-->
+            <div class="cardBox">
+            <div class="card">
+             <div>
+                <div class="nums">1504</div>   
+                <div class="cardName">Daily Views</div>
+                </div>
+        <div class="iconBx"><ion-icon name="eye-outline"></ion-icon>
+        </div>
+        </div>    
+            
+            <div class="card">
+                <div>
+                   <div class="nums">80</div>   
+                   <div class="cardName">Sales</div>
+                   </div>
+                   <div class="iconBx"><ion-icon name="cart-outline"></ion-icon></div>
+               </div>
+               <div class="card">
+                <div>
+                   <div class="nums">284</div>   
+                   <div class="cardName">Comments</div>
+                   </div>
+                   <div class="iconBx"><ion-icon name="chatbubble-ellipses-outline"></ion-icon></div>
+               </div>
+               <div class="card">
+                <div>
+                   <div class="nums">$7842</div>   
+                   <div class="cardName">Earning</div>
+                   </div>
+                   <div class="iconBx"><ion-icon name="albums-outline"></ion-icon>
+                </div>
+               </div>
+            </div>
+            <div class="graphBox">
+                <!--Css .graphbox .box(Chart)-->
+                <div class="box">
+             <canvas id="myChart"></canvas>
+             <!--box2-->
+    <div class="box"><img src="data:image/png;base64,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"></div>
+                </div>
+                <div class="box">
+                <canvas id="energy" width="-30" height="-30px"></canvas>
+                </div>
+
+            </div>
+            <!--order detail list-->
+            <div class="details">
+            <div class="recentOrders">
+            <div class="cardHeader">
+            <h2>Recent Orders</h2>  
+            <a href="#" class="btn">View All</a>  
+            </div>    
+            <table>
+             <th><tr>
+                <td>Name</td>
+                <td>Price</td>
+                <td>Payment</td>
+                <td>Status</td>
+             </tr></th>   
+             <tbody><tr>
+                <td>Star Refrigerator</td>
+                <td>$1200</td>
+                <td>Paid</td>
+                <td><span class="Status delivered" style="padding: 2px 4px;
+                    background: #8de02c;
+                    color: var(--white);
+                    border-radius: 4px; font-size: 14px;
+                    font-weight: 500;">Delivered</span></td>
+             </tr>
+             <tr>
+                <td>Window Coolers</td>
+                <td>$110</td>
+                <td>Due</td>
+                <td><span class="Status pending" style="padding: 2px 4px;
+                    background: #f9ca3f;
+                    color: var(--white);
+                    border-radius: 4px; font-size: 14px;
+                    font-weight: 500;">Pending</span></td>
+             </tr>
+             <tr>
+                <td>Speakers</td>
+                <td>$620</td>
+                <td>Return</td>
+                <td><span class="Status Return" style="padding: 2px 4px;
+                    background: #f00;
+                    color: var(--white);
+                    border-radius: 4px; font-size: 14px;
+                    font-weight: 500;">Return</span></td>
+             </tr>
+             <tr>
+                <td>Hp Laptop</td>
+                <td>$1100</td>
+                <td>Due</td>
+                <td><span class="Status In Progress" style="padding: 2px 4px;
+                    background: #1795ce;
+                    color: var(--white);
+                    border-radius: 4px; font-size: 14px;
+                    font-weight: 500;">In Progress</span></td>
+             </tr>
+             <tr>
+                <td>Smart Watch</td>
+                <td>$1200</td>
+                <td>Paid</td>
+                <td><span class="Status delivered" style="padding: 2px 4px;
+                    background: #8de02c;
+                    color: var(--white);
+                    border-radius: 4px; font-size: 14px;
+                    font-weight: 500;">Delivered</span></td>
+             </tr>
+             <tr>
+                <td>Wall Fan</td>
+                <td>$110</td>
+                <td>Paid</td>
+                <td><span class="Status pending" style="padding: 2px 4px;
+                    background: #f9ca3f;
+                    color: var(--white);
+                    border-radius: 4px; font-size: 14px;
+                    font-weight: 500;">Pending</span></td>
+             </tr>
+             <tr>
+                <td>Adidas Shoes</td>
+                <td>$620</td>
+                <td>Paid</td>
+                <td><span class="Status Return" style="padding: 2px 4px;
+                    background: #f00;
+                    color: var(--white);
+                    border-radius: 4px; font-size: 14px;
+                    font-weight: 500;">Return</span></td>
+             </tr>
+             <tr>
+                <td>Denim Shirts</td>
+                <td>$110</td>
+                <td>Due</td>
+                <td><span class="Status In Progress" style="padding: 2px 4px;
+                    background: #1795ce;
+                    color: var(--white);
+                    border-radius: 4px; font-size: 14px;
+                    font-weight: 500;">In Progress</span></td>
+             </tr>
+             <tr>
+                <td>Casual Shoes</td>
+                <td>$575</td>
+                <td>Paid</td>
+                <td><span class="Status pending" style="padding: 2px 4px;
+                    background: #f9ca3f;
+                    color: var(--white);
+                    border-radius: 4px; font-size: 14px;
+                    font-weight: 500;">Pending</span></td>
+             </tr>
+             <tr>
+                <td>Wall Fan</td>
+                <td>$110</td>
+                <td>Paid</td>
+                <td><span class="Status pending" style="padding: 2px 4px;
+                    background: #f9ca3f;
+                    color: var(--white);
+                    border-radius: 4px; font-size: 14px;
+                    font-weight: 500;">Pending</span></td>
+             </tr>
+            </tbody>
+            </table>
+            </div>    
+            <!--New Customers-->
+            <div class="recentCustomers">
+                <div class="cardHeader">
+                    <h2>Recent Customers</h2>   
+                    </div>    
+                <table><tr>
+                <td width="60px"><div class="imgBx"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyuw8QvQ8GIXthfUY8HQXfUnMETpByMjvUFA&usqp=CAU"></div></td>    
+                <td><h4>David<br><span>Italy</span></h4></td>
+                </tr>
+                <tr>
+                <td width="60px"><div class="imgBx"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFHhqspPD9nWDEhHlzza_aywedxdbmnJhSQA&usqp=CAU"></div></td>    
+                <td><h4>Amelia<br><span>USA</span></h4></td>
+                </tr>
+                <tr>
+                <td width="60px"><div class="imgBx"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJwsqkBpY107vzyszgyMHolee0Jo8yW14RYg&usqp=CAU"></div></td>    
+                <td><h4>Martin<br><span>France</span></h4></td>
+                </tr>
+                <tr>
+                <td width="60px"><div class="imgBx"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRD0dXJhQvQPnvK-kdUuqfmfANGj4fkQGoK1A&usqp=CAU"></div></td>    
+                <td><h4>Amit<br><span>India</span></h4></td>
+                </tr>
+                <tr>
+                <td width="60px"><div class="imgBx"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLJvj3k0OA9g7gh22ZQD_T5J4I1f3DNUUQTQ&usqp=CAU"></div></td>    
+                <td><h4>Charlie<br><span>Japan</span></h4></td>
+                </tr>
+                <tr>
+                <td width="60px"><div class="imgBx"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyuw8QvQ8GIXthfUY8HQXfUnMETpByMjvUFA&usqp=CAU"></div></td>    
+                <td><h4>Jackie<br><span>Singapore</span></h4></td>
+                </tr> 
+            </table>
+            </div>
+            </div>
+    </div></div>
+      
+        
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <!--Chart-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="MyChart.js"></script>
+    <script> 
+    //ToggleMenu
+    let toggle=document.querySelector('.toggle');
+    let nav=document.querySelector('.nav');
+    let main=document.querySelector('.main');
+
+    toggle.onclick=function(){
+    nav.classList.toggle('active');
+    main.classList.toggle('active');
+
+    }
+    //add hovered class in list items
+    let list=document.querySelectorAll('.nav li');
+    function activeLink(){
+        list.forEach((item)=>item.classList.remove('hovered')); //like array
+        this.classList.add('hovered');
+    }
+    list.forEach((item)=>
+    item.addEventListener('mouseover',activeLink));
+    </script>    
+</body>
+</html>
